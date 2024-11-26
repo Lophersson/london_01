@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Genérica</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Contenedor principal -->
+  <div class="container">
+    <!-- Título principal -->
+    <h1>Bienvenido a la Página Genérica</h1>
+
+    <!-- Sección con dos columnas -->
+    <div class="row">
+      <div class="col">
+        <h2>Columna 1</h2>
+        <p>Este es un párrafo en la primera columna. Puedes agregar más contenido aquí.</p>
+        <button class="btn">Botón de acción</button>
+      </div>
+      <div class="col">
+        <h2>Columna 2</h2>
+        <p>Este es un párrafo en la segunda columna. Agrega más detalles aquí también.</p>
+        <button class="btn">Botón de acción</button>
+      </div>
+    </div>
+
+    <!-- Formulario de contacto -->
+    <h2>Formulario de Contacto</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo" required>
+      <textarea placeholder="Tu mensaje" required></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+
+    <!-- Tabla de ejemplo -->
+    <h2>Tabla de Datos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Ciudad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Juan Pérez</td>
+          <td>30</td>
+          <td>Madrid</td>
+        </tr>
+        <tr>
+          <td>María López</td>
+          <td>25</td>
+          <td>Barcelona</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Modal de ejemplo -->
+    <button id="openModal" class="btn">Abrir Modal</button>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <h2>Este es un Modal</h2>
+        <p>Contenido dentro del modal.</p>
+        <button id="closeModal" class="btn">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Script para abrir y cerrar el modal
+    const openModalBtn = document.getElementById('openModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const modal = document.getElementById('myModal');
+
+    openModalBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
