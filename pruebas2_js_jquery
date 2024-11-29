@@ -1,0 +1,36 @@
+// Función principal para preparar la pantalla
+var PrepararPantalla = function() {
+    CargarEventosPrincipales();
+    CargarDatosIniciales();
+};
+
+// Asignación de eventos principales
+var CargarEventosPrincipales = function() {
+    $("#BotonRojo").on("click", FuncionColorRojo);
+    $("#BotonVerde").on("click", FuncionColorVerde);
+    $("#BotonAzul").on("click", FuncionColorAzul);
+};
+
+// Carga de datos iniciales (vacío, pero preparado para uso futuro)
+var CargarDatosIniciales = function() {
+    console.log("Datos iniciales cargados.");
+};
+
+// Funciones asociadas a los botones
+var FuncionColorRojo = function() {
+    $(".panel_color").css("background-color", "red");
+    alert("Has seleccionado el color Rojo.");
+};
+
+var FuncionColorVerde = function() {
+    $(".panel_color").css("background-color", "green");
+    alert("Has seleccionado el color Verde.");
+};
+
+var FuncionColorAzul = function() {
+    $(".panel_color").css("background-color", "blue");
+    alert("Has seleccionado el color Azul.");
+};
+
+// Ejecutar cuando el DOM esté completamente cargado
+$(document).ready(PrepararPantalla);
