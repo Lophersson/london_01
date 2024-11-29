@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Puebas</title>
+        <link rel="stylesheet" href="./_componentes/estilos.css">
+
+    </head>
+    <body>
+
+        <script type="text/javascript" src="_componentes/jquery.min.js"></script>
+        <script type="text/javascript" src="_componentes/pruebas.js"></script>
+    </body>
+</html>
