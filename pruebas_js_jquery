@@ -1,0 +1,24 @@
+
+var PrepararPantalla = function() {
+    CargarEventosPrincipales();
+    CargarDatosIniciales();
+}
+var CargarEventosPrincipales= function() {
+//Asignar evento a cada botón//
+var BotonRojo = document.getElementById("BotonRojo");
+BotonRojo.addEventListener("click", FuncionColorRojo);
+
+document.getElementById("BotonRojo").addEventListener("click", FuncionColorRojo);
+
+$("#BotonRojo").on("click", FuncionColorRojo);
+
+}
+var CargarDatosIniciales= function() {
+
+
+
+}
+
+
+
+document.addEventListener("DOMContentLoaded", PrepararPantalla);
