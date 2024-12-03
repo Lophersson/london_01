@@ -1,0 +1,97 @@
+body {
+  font-family:'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #303030;
+}
+
+.container {
+  text-align: center;
+  background: #5c5c5c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 360px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #ffee00;
+  font-weight: 700;
+}
+
+.form-group, .resultado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  width: 40%;
+  text-align: left;
+  font-weight: 600;
+  font-size: 18px;
+  color: #ccc;
+}
+
+input {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 30px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 18px;
+  font-family:'Courier New', Courier, monospace;
+  color: #000000;
+}
+
+.label2 {
+  font-weight: bold;
+  width: 50%;
+  text-align: left;
+  font-weight: 600;
+  font-size: 18px;
+  color: #ccc;
+  padding: 10px;
+}
+
+input[readonly] {
+  width: 50%;
+  background-color: #f9f9f9;
+  cursor: not-allowed;
+  height: 30px;
+  text-align: right;
+}
+
+button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #218838;
+}
