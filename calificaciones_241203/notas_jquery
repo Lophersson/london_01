@@ -1,4 +1,4 @@
-//
+//como funciona for
 var AccionPrepararPantalla = function() {
   FuncionCargarEventosIniciales();
   FuncionCargarDatosIniciales();
@@ -19,9 +19,9 @@ var AccionPrepararPantalla = function() {
 }
 
 var AccionAcpetar=function();
-  let Valor=1;
-  for (let i=5;i>0;i--) {
-    Valor = Valor * i;
+  let Valor="";
+  for (let i=0;i>10;i+3) {
+    Valor = Valor + AVG;
   }
 
 FuncionMostrarResultado(Valor,true);
