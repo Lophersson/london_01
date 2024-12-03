@@ -4,13 +4,14 @@ var AccionPrepararPantalla = function() {
   FuncionCargarDatosIniciales();
 }
 
-var AccionAcpetar=function();
-  let Valor=1;
-  for (let i=5;i>0;i--) {
+var AccionAceptar = function() {
+  let Valor = 1;
+  for (let i = 5; i > 0; i--) {
     Valor = Valor * i;
   }
 
-FuncionMostrarResultado(Valor,true);
+  FuncionMostrarResultado(Valor, true);
+}
 
 //Otra opción
 var AccionPrepararPantalla = function() {
@@ -18,10 +19,11 @@ var AccionPrepararPantalla = function() {
   FuncionCargarDatosIniciales();
 }
 
-var AccionAcpetar=function();
-  let Valor="";
-  for (let i=0;i>10;i+3) {
-    Valor = Valor + AVG;
+var AccionAceptar = function() {
+  let Valor = "";
+  for (let i = 0; i < 10; i += 3) {
+    Valor = Valor + "AVG";
   }
 
-FuncionMostrarResultado(Valor,true);
+  FuncionMostrarResultado(Valor, true);
+}
