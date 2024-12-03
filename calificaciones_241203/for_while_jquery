@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos con jQuery</title>
+    <!-- Incluir la librería jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Estilo general del cuerpo */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298); /* Fondo con gradiente */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Contenedor principal */
+        .container {
+            background-color: rgba(255, 255, 255, 0.1); /* Fondo transparente */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Títulos */
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para los párrafos */
+        p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        /* Estilo de los inputs, botones y resultados */
+        input[type="number"], input[type="text"], button, .resultado {
+            width: 80%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #2a5298;
+            border-radius: 5px;
+            background-color: #f0f4f8;
+            color: #333;
+            font-size: 16px;
+            box-sizing: border-box;  /* Asegura que el padding no afecte al tamaño */
+        }
+
+        input[type="number"]:focus, input[type="text"]:focus, button:focus {
+            outline: none;
+            border-color: #4caf50;
+        }
+
+        button {
+            background-color: #e5ff00;
+            color: rgb(0, 4, 255);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(0, 4, 255);
+            color: #e5ff00;
+        }
+
+        /* Estilo del área de resultados */
+        .resultado {
+            background-color: rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            color: #ffeb3b;
+            border: 2px solid #4caf50;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Estilo de los saltos de línea */
+        hr {
+            border: 0;
+            border-top: 2px solid #2a5298;
+            margin: 20px 0;
+        }
+
+    </style>
+    <script>
+        // Función para calcular el factorial de un número
+        var AccionAceptar = function() {
+            let numero = parseInt($('#inputNumero').val()); // Obtener el número desde el input
+            let Valor = 1;
+            for (let i = numero; i > 0; i--) {
+                Valor = Valor * i;
+            }
+            FuncionMostrarResultado(Valor, '#resultadoFactorial');
+        }
+
+        // Función para concatenar una cadena un número de veces
+        var AccionConcatenar = function() {
+            let texto = $('#inputTexto').val();  // Obtener el texto desde el input
+            let veces = parseInt($('#inputVeces').val());  // Obtener cuántas veces se va a concatenar
+            let Valor = "";
+            for (let i = 0; i < veces; i++) {
+                Valor = Valor + texto;
+            }
+            FuncionMostrarResultado(Valor, '#resultadoConcatenar');
+        }
+
+        // Función para concatenar un texto personalizado hasta un número determinado usando while
+        var AccionConcatenarWhile = function() {
+            let texto = $('#inputTextoWhile').val();  // Obtener el texto personalizado desde el input
+            let Valor = "";
+            let contador = 0;
+            let veces = parseInt($('#inputVecesWhile').val());  // Obtener el número de repeticiones desde el input
+            let continuar = true;
+            
+            while (continuar) {
+                Valor = Valor + texto;  // Concatenar el texto
+                contador = contador + 1;  // Incrementar el contador
+                
+                if (contador >= veces) {
+                    continuar = false;  // Detener el bucle si el contador alcanza el número de repeticiones deseado
+                }
+            }
+
+            FuncionMostrarResultado(Valor, '#resultadoConcatenarWhile');  // Mostrar el resultado
+        }
+
+        // Función para mostrar el resultado
+        function FuncionMostrarResultado(valor, selector) {
+            $(selector).val('El resultado es: ' + valor); // Mostrar el resultado en el input indicado
+        }
+
+        // Acciones para ejecutar cuando el documento esté listo
+        $(document).ready(function() {
+            // Asignar eventos para los botones
+            $('#btnCalcularFactorial').click(function() {
+                AccionAceptar();
+            });
+
+            $('#btnConcatenar').click(function() {
+                AccionConcatenar();
+            });
+
+            $('#btnConcatenarWhile').click(function() {
+                AccionConcatenarWhile();
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ejemplos con jQuery</h1>
+
+        <p>Introduce un número y presiona el botón para calcular el factorial.</p>
+        <!-- Campo de entrada para el número -->
+        <input type="number" id="inputNumero" value="5" placeholder="Introduce un número para el factorial" />
+        <button id="btnCalcularFactorial">Calcular Factorial</button>
+        <!-- Resultado como input -->
+        <input type="text" id="resultadoFactorial" readonly />
+
+        <hr>
+
+        <p>Introduce el texto y cuántas veces deseas concatenarlo.</p>
+        <!-- Campo de entrada para el texto -->
+        <input type="text" id="inputTexto" value="AVG" placeholder="Introduce el texto a concatenar" />
+        <!-- Campo de entrada para el número de veces -->
+        <input type="number" id="inputVeces" value="3" placeholder="Introduce el número de repeticiones" />
+        <button id="btnConcatenar">Concatenar</button>
+        <!-- Resultado como input -->
+        <input type="text" id="resultadoConcatenar" readonly />
+
+        <hr>
+
+        <p>Introduce cuántas veces deseas concatenar un texto con un bucle `while`.</p>
+        <!-- Campo de entrada para el texto personalizado -->
+        <input type="text" id="inputTextoWhile" value="AVG" placeholder="Introduce el texto a concatenar (while)" />
+        <!-- Campo de entrada para el número de veces para el bucle while -->
+        <input type="number" id="inputVecesWhile" value="10" placeholder="Introduce el número de repeticiones" />
+        <button id="btnConcatenarWhile">Concatenar (Usando while)</button>
+        <!-- Resultado como input -->
+        <input type="text" id="resultadoConcatenarWhile" readonly />
+
+        <hr>
+
+    </div>
+
+</body>
+</html>
