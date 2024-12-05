@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Número Secreto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            width: 180px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        #imagenResultado {
+            margin-top: 20px;
+            text-align: center;  /* Centra el contenido */
+            display: flex;
+            justify-content: center;  /* Centra el contenido dentro del div */
+            align-items: center;
+            height: 200px;
+        }
+        #gif {
+            max-width: 100%;  /* Asegura que la imagen no sea más grande que el contenedor */
+            max-height: 100%; /* Asegura que la imagen no se salga del contenedor */
+        }
+    </style>
+</head>
+<body>
+    <h1>Juego del Número Secreto</h1>
+    <p>Intenta adivinar el número secreto (entre 1 y 100).</p>
+    <input type="number" id="intento" placeholder="introduce un número" min="1" max="100">
+    <button onclick="verificarAdivinanza()">Adivinar</button>
+    <p id="resultado"></p>
+    <div id="imagenResultado"></div>
+
+    <script>
+        // Inicializar variables
+        const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+        let intentos = 0;
+    
+        // Función para verificar el intento
+        function verificarAdivinanza() {
+            const intento = parseInt(document.getElementById("intento").value);
+            const resultado = document.getElementById("resultado");
+            const imagenResultado = document.getElementById("imagenResultado");
+            intentos++;
+    
+            if (isNaN(intento) || intento < 1 || intento > 100) {
+                resultado.textContent = "Por favor, ingresa un número válido entre 1 y 100.";
+                resultado.style.color = "red";
+                imagenResultado.innerHTML = "";
+                return;
+            }
+    
+            if (intento < numeroSecreto) {
+                resultado.textContent = "El número secreto es mayor. ¡Intenta de nuevo!";
+                resultado.style.color = "blue";
+                imagenResultado.innerHTML = `<img id="gif" src="nekorin_no.gif?${new Date().getTime()}" alt="Intento incorrecto">`;
+    
+                // Mostrar el GIF
+                document.getElementById("gif").style.display = "block";
+    
+                // Establecer un temporizador para ocultar el GIF después de 5 minutos (300,000 ms)
+                setTimeout(function() {
+                    document.getElementById("gif").style.display = "none";
+                }, 300000); // 300000 ms = 5 minutos
+            } else if (intento > numeroSecreto) {
+                resultado.textContent = "El número secreto es menor. ¡Intenta de nuevo!";
+                resultado.style.color = "blue";
+                imagenResultado.innerHTML = `<img id="gif" src="nekorin_no.gif?${new Date().getTime()}" alt="Intento incorrecto">`;
+    
+                // Mostrar el GIF
+                document.getElementById("gif").style.display = "block";
+    
+                // Establecer un temporizador para ocultar el GIF después de 5 minutos (300,000 ms)
+                setTimeout(function() {
+                    document.getElementById("gif").style.display = "none";
+                }, 300000); // 300000 ms = 5 minutos
+            } else {
+                resultado.textContent = `¡Felicitaciones! Adivinaste el número secreto (${numeroSecreto}) en ${intentos} intentos.`;
+                resultado.style.color = "green";
+                imagenResultado.innerHTML = `<img src="nekorin_ok.gif?${new Date().getTime()}" alt="Número correcto">`;
+    
+                // Desactivar el input y botón tras ganar
+                document.getElementById("intento").disabled = true;
+                document.querySelector("button").disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
