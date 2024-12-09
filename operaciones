@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPERACIONES MATEMÁTICAS</title>
+<style>
+/* Estilos generales */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: antiquewhite;
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 800;
+    border-radius: 80px;
+    padding: 20px;
+    background-color: transparent;
+    box-shadow: none;
+    animation: parpadeoh1 0.4s infinite alternate;
+}
+
+/* Animación para el h1 */
+@keyframes parpadeoh1 {
+    0% { box-shadow: 0px 0px 180px 80px rgb(255, 230, 0); }
+    33% { box-shadow: 0px 0px 170px 60px rgb(102, 255, 0); }
+    66% { box-shadow: 0px 0px 160px 40px rgb(255, 0, 170); }
+    100% { box-shadow: 0px 0px 150px 20px rgb(0, 255, 242); }
+}
+
+/* Animación para botones */
+@keyframes parpadeo {
+    0% { box-shadow: 0 0 20px 2px rgb(102, 255, 0); }
+    33% { box-shadow: 0 0 15px 1px rgb(255, 238, 0); }
+    66% { box-shadow: 0 0 15px 1px rgb(255, 0, 170); }
+    100% { box-shadow: 0 0 10px 2px rgb(0, 255, 242); }
+}
+
+/* Contenedor principal */
+.contenedor-principal {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Dos columnas: botones (1fr) e inputs (2fr) */
+    gap: 20px; /* Espaciado entre columnas */
+    margin-top: 30px;
+    width: 80%; /* Ajusta el ancho del contenedor */
+}
+
+/* Botonera en la columna izquierda */
+.botonera {
+    display: flex;
+    flex-direction: column; /* Alinear botones en columna */
+    gap: 20px; /* Espaciado entre botones */
+}
+
+.botonera .miboton {
+flex: 1; /* Permitir que los botones tengan un tamaño uniforme */
+max-width: 210px;
+height: 100px;
+text-align: center; /* Centrar el texto en el botón */
+padding-top: 10px;
+padding-bottom: 10px;
+border: 0px solid rgb(251, 255, 0);
+border-radius: 80px;
+font-size: 60px;
+font-style: normal;
+font-weight: 800;
+background-color: #fff; /* Fondo blanco */
+color: #000; /* Texto negro */
+cursor: pointer; /* Cambiar el cursor al pasar por el botón */
+transition: background-color 0.3s; /* Animación suave para el cambio de color */
+line-height: 100px;
+animation: parpadeo 0.5s infinite alternate;
+}
+
+.botonera .miboton:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Inputs en la columna derecha */
+.inputs-container {
+    display: flex;
+    flex-direction: column; /* Alinear inputs en columna */
+    gap: 20px; /* Espaciado entre inputs */
+    justify-content: center; /* Centrar inputs verticalmente */
+}
+
+#campoUno, #campoDos {
+width: 600px;
+height: 100px;
+font-size: 60px;
+font-style: italic;
+font-weight: 800;
+color: rgb(2, 2, 2);
+background-color: beige;
+text-align: center; /* Centra el texto horizontalmente */
+line-height: 100px; /* Alinea verticalmente el texto dentro del input */
+padding: 0; /* Elimina cualquier padding para asegurar que el texto esté centrado correctamente */
+border-radius: 80px;
+}
+
+/* Input de salida */
+#resultado {
+width: 600px;
+height: 100px;
+font-size: 60px;
+font-style: italic;
+font-weight: 800;
+color: rgb(2, 2, 2);
+background-color: beige;
+text-align: center;
+margin-top: 30px; /* Espacio entre el botón y el campo de salida */
+border-radius: 80px;
+}
+
+</style>
+</head>
+<body>
+<h1>OPERACIONES MATEMÁTICAS</h1>
+
+<!-- Contenedor principal -->
+<div class="contenedor-principal">
+    <!-- Botones en la columna izquierda -->
+    <div class="botonera">
+        <div id="sumar" class="miboton">+</div>
+        <div id="multiplicar" class="miboton">x</div>
+        <div id="dividir" class="miboton">/</div>
+        <!--<div id="restar" class="miboton">RESTAR</div>-->
+    </div>
+
+    <!-- Inputs en la columna derecha -->
+    <div class="inputs-container">
+        <input type="text" id="campoUno" value="2">
+        <input type="text" id="campoDos" value="3">
+        <input type="text" id="resultado" readonly>
+    </div>
+</div>
+
+<script>
+// Función para realizar la operación seleccionada
+function operar(operacion) {
+    let valor1 = parseFloat(document.getElementById("campoUno").value);
+    let valor2 = parseFloat(document.getElementById("campoDos").value);
+    let resultado;
+
+    switch (operacion) {
+        case "sumar": resultado = valor1 + valor2; break;
+        case "restar": resultado = valor1 - valor2; break;
+        case "multiplicar": resultado = valor1 * valor2; break;
+        case "dividir": resultado = valor2 !== 0 ? valor1 / valor2 : "Error"; break;
+    }
+
+    document.getElementById("resultado").value = resultado;
+}
+
+document.getElementById("sumar").addEventListener("click", () => operar("sumar"));
+document.getElementById("restar").addEventListener("click", () => operar("restar"));
+document.getElementById("multiplicar").addEventListener("click", () => operar("multiplicar"));
+document.getElementById("dividir").addEventListener("click", () => operar("dividir"));
+</script>
+</body>
+</html>
