@@ -1,0 +1,74 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS empresa;
+
+-- Usar la base de datos
+USE empresa;
+
+-- Crear la tabla CARGO
+CREATE TABLE CARGO (
+    ID_CARGO INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NOMBRE_CARGO VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- Insertar registros en la tabla CARGO
+INSERT INTO CARGO (NOMBRE_CARGO)
+VALUES
+('Gerente'),
+('Analista'),
+('Desarrollador'),
+('Diseñadora'),
+('Técnico'),
+('Contable'),
+('Ingeniero'),
+('Recursos Humanos'),
+('Director'),
+('Secretaria');
+
+-- Crear la tabla DEPARTAMENTO
+CREATE TABLE DEPARTAMENTO (
+    ID_DEPARTAMENTO INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NOMBRE_DEPARTAMENTO VARCHAR(100) NOT NULL UNIQUE,
+    DESCRIPCION VARCHAR(255)
+);
+
+-- Insertar registros en la tabla DEPARTAMENTO
+INSERT INTO DEPARTAMENTO (NOMBRE_DEPARTAMENTO, DESCRIPCION)
+VALUES
+('Administración', 'Departamento encargado de la gestión administrativa de la empresa.'),
+('Finanzas', 'Departamento encargado de la gestión financiera y contable.'),
+('IT', 'Departamento de tecnologías de la información y soporte técnico.'),
+('Marketing', 'Departamento encargado de la promoción y publicidad de los productos o servicios.'),
+('Soporte', 'Departamento encargado de la atención técnica y resolución de problemas.'),
+('Producción', 'Departamento encargado de la fabricación o desarrollo de productos.'),
+('RRHH', 'Departamento de Recursos Humanos encargado de la gestión del personal.'),
+('Dirección', 'Departamento encargado de la toma de decisiones estratégicas.');
+
+-- Crear la tabla EMPLEADOS
+CREATE TABLE EMPLEADOS (
+    DNI VARCHAR(9) NOT NULL PRIMARY KEY,
+    CODIGO_EMPLEADO INT NOT NULL UNIQUE,
+    NUM_SEG_SOCIAL VARCHAR(15) NOT NULL UNIQUE,
+    NOMBRE VARCHAR(50) NOT NULL,
+    APELLIDO1 VARCHAR(50) NOT NULL,
+    APELLIDO2 VARCHAR(50),
+    ID_CARGO INT NOT NULL,
+    FECHA_NACIMIENTO DATE NOT NULL,
+    FECHA_ALTA DATE NOT NULL,
+    ID_DEPARTAMENTO INT NOT NULL,
+    FOREIGN KEY (ID_CARGO) REFERENCES CARGO(ID_CARGO),
+    FOREIGN KEY (ID_DEPARTAMENTO) REFERENCES DEPARTAMENTO(ID_DEPARTAMENTO)
+);
+
+-- Insertar registros en la tabla EMPLEADOS
+INSERT INTO EMPLEADOS (DNI, CODIGO_EMPLEADO, NUM_SEG_SOCIAL, NOMBRE, APELLIDO1, APELLIDO2, ID_CARGO, FECHA_NACIMIENTO, FECHA_ALTA, ID_DEPARTAMENTO)
+VALUES
+('12345678A', 1, 'SS12345678A', 'Juan', 'Pérez', 'Gómez', 1, '1985-05-12', '2020-01-15', 1),
+('23456789B', 2, 'SS23456789B', 'Ana', 'López', 'Martínez', 2, '1990-03-22', '2019-03-10', 2),
+('34567890C', 3, 'SS34567890C', 'Carlos', 'Rodríguez', 'Díaz', 3, '1992-07-18', '2021-06-01', 3),
+('45678901D', 4, 'SS45678901D', 'María', 'García', 'Ruiz', 4, '1988-12-30', '2018-11-25', 4),
+('56789012E', 5, 'SS56789012E', 'José', 'Fernández', 'Sánchez', 5, '1995-02-14', '2022-05-20', 5),
+('67890123F', 6, 'SS67890123F', 'Laura', 'Martín', 'Hernández', 6, '1993-09-09', '2020-08-15', 2),
+('78901234G', 7, 'SS78901234G', 'David', 'Santos', 'Torres', 7, '1987-06-27', '2017-04-18', 6),
+('89012345H', 8, 'SS89012345H', 'Marta', 'Vázquez', 'Moreno', 8, '1991-10-01', '2021-02-11', 7),
+('90123456I', 9, 'SS90123456I', 'Luis', 'Álvarez', 'Jiménez', 9, '1984-11-15', '2016-12-01', 1),
+('01234567J', 10, 'SS01234567J', 'Elena', 'Suárez', 'Castro', 10, '1996-04-05', '2023-01-07', 8);
