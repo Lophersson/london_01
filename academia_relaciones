@@ -1,0 +1,44 @@
+Entidades y atributos
+ALUMNOS
+
+ID_ALUMNO: INT
+NOMBRE: VARCHAR
+APELLIDO1: VARCHAR
+APELLIDO2: VARCHAR
+DNI: VARCHAR
+CURSOS
+
+ID_CURSO: INT
+NOMBRE_CURSO: VARCHAR
+TIPO_CURSO: ENUM('Informática', 'Inglés')
+MATERIAS
+
+ID_MATERIA: INT
+NOMBRE_MATERIA: VARCHAR
+ID_CURSO: INT
+PROFESORES
+
+ID_PROFESOR: INT
+NOMBRE: VARCHAR
+APELLIDO1: VARCHAR
+APELLIDO2: VARCHAR
+DNI: VARCHAR
+MATRICULAS (relaciona ALUMNOS con CURSOS)
+
+ID_ALUMNO: INT
+ID_CURSO: INT
+FECHA_MATRICULA: DATE
+PROFESORES_MATERIAS (relaciona PROFESORES con MATERIAS)
+
+ID_PROFESOR: INT
+ID_MATERIA: INT
+Relaciones
+ALUMNOS tiene una relación de muchos a muchos con CURSOS a través de MATRICULAS.
+CURSOS tiene una relación de uno a muchos con MATERIAS.
+MATERIAS tiene una relación de muchos a muchos con PROFESORES a través de PROFESORES_MATERIAS.
+Paso 3: Relacionar las tablas
+ALUMNOS se conecta a MATRICULAS (uno a muchos) mediante el campo ID_ALUMNO.
+CURSOS se conecta a MATRICULAS (uno a muchos) mediante el campo ID_CURSO.
+CURSOS se conecta a MATERIAS (uno a muchos) mediante el campo ID_CURSO.
+MATERIAS se conecta a PROFESORES_MATERIAS (uno a muchos) mediante el campo ID_MATERIA.
+PROFESORES se conecta a PROFESORES_MATERIAS (uno a muchos) mediante el campo ID_PROFESOR.
