@@ -1,0 +1,114 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS academia;
+
+-- Usar la base de datos
+USE academia;
+
+-- Crear la tabla CURSOS
+CREATE TABLE CURSOS (
+    ID_CURSO INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NOMBRE_CURSO VARCHAR(100) NOT NULL UNIQUE,
+    TIPO_CURSO ENUM('Informática', 'Inglés') NOT NULL
+);
+
+-- Crear la tabla MATERIAS
+CREATE TABLE MATERIAS (
+    ID_MATERIA INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NOMBRE_MATERIA VARCHAR(100) NOT NULL UNIQUE,
+    ID_CURSO INT NOT NULL,
+    FOREIGN KEY (ID_CURSO) REFERENCES CURSOS(ID_CURSO)
+);
+
+-- Crear la tabla PROFESORES
+CREATE TABLE PROFESORES (
+    ID_PROFESOR INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NOMBRE VARCHAR(50) NOT NULL,
+    APELLIDO1 VARCHAR(50) NOT NULL,
+    APELLIDO2 VARCHAR(50),
+    DNI VARCHAR(9) NOT NULL UNIQUE
+);
+
+-- Crear la tabla ALUMNOS
+CREATE TABLE ALUMNOS (
+    ID_ALUMNO INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NOMBRE VARCHAR(50) NOT NULL,
+    APELLIDO1 VARCHAR(50) NOT NULL,
+    APELLIDO2 VARCHAR(50),
+    DNI VARCHAR(9) NOT NULL UNIQUE
+);
+
+-- Crear la tabla MATRICULAS (relación muchos a muchos entre alumnos y cursos)
+CREATE TABLE MATRICULAS (
+    ID_ALUMNO INT NOT NULL,
+    ID_CURSO INT NOT NULL,
+    FECHA_MATRICULA DATE NOT NULL,
+    PRIMARY KEY (ID_ALUMNO, ID_CURSO),
+    FOREIGN KEY (ID_ALUMNO) REFERENCES ALUMNOS(ID_ALUMNO),
+    FOREIGN KEY (ID_CURSO) REFERENCES CURSOS(ID_CURSO)
+);
+
+-- Crear la tabla PROFESORES_MATERIAS (relación muchos a muchos entre profesores y materias)
+CREATE TABLE PROFESORES_MATERIAS (
+    ID_PROFESOR INT NOT NULL,
+    ID_MATERIA INT NOT NULL,
+    PRIMARY KEY (ID_PROFESOR, ID_MATERIA),
+    FOREIGN KEY (ID_PROFESOR) REFERENCES PROFESORES(ID_PROFESOR),
+    FOREIGN KEY (ID_MATERIA) REFERENCES MATERIAS(ID_MATERIA)
+);
+
+-- Insertar registros en la tabla CURSOS
+INSERT INTO CURSOS (NOMBRE_CURSO, TIPO_CURSO)
+VALUES
+('Introducción a Python', 'Informática'),
+('Desarrollo Web con HTML y CSS', 'Informática'),
+('Excel Avanzado', 'Informática'),
+('Inglés Básico', 'Inglés'),
+('Inglés Intermedio', 'Inglés'),
+('Preparación para TOEFL', 'Inglés');
+
+-- Insertar registros en la tabla MATERIAS
+INSERT INTO MATERIAS (NOMBRE_MATERIA, ID_CURSO)
+VALUES
+('Variables y Tipos de Datos', 1),
+('Estructuras Condicionales', 1),
+('HTML Básico', 2),
+('CSS Básico', 2),
+('Tablas Dinámicas', 3),
+('Fórmulas Avanzadas', 3),
+('Gramática Básica', 4),
+('Conversación Básica', 4),
+('Gramática Intermedia', 5),
+('Comprensión Oral', 5),
+('Redacción TOEFL', 6);
+
+-- Insertar registros en la tabla PROFESORES
+INSERT INTO PROFESORES (NOMBRE, APELLIDO1, APELLIDO2, DNI)
+VALUES
+('Laura', 'Martínez', 'López', '12345678A'),
+('Carlos', 'Rodríguez', 'Pérez', '23456789B'),
+('Ana', 'Gómez', 'Díaz', '34567890C');
+
+-- Insertar registros en la tabla ALUMNOS
+INSERT INTO ALUMNOS (NOMBRE, APELLIDO1, APELLIDO2, DNI)
+VALUES
+('Mario', 'García', 'Santos', '45678901D'),
+('Lucía', 'Fernández', 'Ruiz', '56789012E'),
+('Sofía', 'López', 'Torres', '67890123F');
+
+-- Insertar registros en la tabla MATRICULAS
+INSERT INTO MATRICULAS (ID_ALUMNO, ID_CURSO, FECHA_MATRICULA)
+VALUES
+(1, 1, '2024-01-10'), -- Mario en Introducción a Python
+(1, 4, '2024-01-15'), -- Mario en Inglés Básico
+(2, 2, '2024-02-01'), -- Lucía en Desarrollo Web con HTML y CSS
+(3, 5, '2024-03-05'); -- Sofía en Inglés Intermedio
+
+-- Insertar registros en la tabla PROFESORES_MATERIAS
+INSERT INTO PROFESORES_MATERIAS (ID_PROFESOR, ID_MATERIA)
+VALUES
+(1, 1), -- Laura enseña Variables y Tipos de Datos
+(1, 2), -- Laura enseña Estructuras Condicionales
+(2, 3), -- Carlos enseña HTML Básico
+(2, 4), -- Carlos enseña CSS Básico
+(3, 7), -- Ana enseña Gramática Básica
+(3, 8); -- Ana enseña Conversación Básica
