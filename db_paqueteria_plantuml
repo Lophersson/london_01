@@ -1,0 +1,38 @@
+@startuml
+!define primary_key(x) <b><color:blue>x</color></b>
+!define foreign_key(x) <color:green>x</color>
+
+entity "Provincias" as Provincias {
+    primary_key(id_provincia): INT
+    nombre: VARCHAR(100)
+}
+
+entity "Camioneros" as Camioneros {
+    primary_key(id_camionero): INT
+    nombre: VARCHAR(100)
+    dni: VARCHAR(20)
+    telefono: VARCHAR(15)
+    direccion: VARCHAR(255)
+    salario: DECIMAL(10, 2)
+}
+
+entity "Camiones" as Camiones {
+    primary_key(id_camion): INT
+    matricula: VARCHAR(20)
+    modelo: VARCHAR(50)
+    tipo: VARCHAR(50)
+    potencia: DECIMAL(5, 2)
+}
+
+entity "Paquetes" as Paquetes {
+    primary_key(id_paquete): INT
+    codigo: VARCHAR(50)
+    descripcion: TEXT
+    foreign_key(id_camionero): INT
+    foreign_key(id_provincia): INT
+}
+
+Provincias ||--o{ Paquetes : "destino"
+Camioneros ||--o{ Paquetes : "distribuye"
+Camiones ||--o{ Paquetes : "transporta"
+@enduml
