@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="centered">Bienvenidos</h1>
+    <div class="content">
+        <a href="quienesSomos.html">
+            <button class="big-button">
+                <img src="icono1.png" alt="Quiénes Somos">
+            </button>
+        </a>
+        <a href="contacto.html">
+            <button class="big-button">
+                <img src="icono2.png" alt="Contacto">
+            </button>
+        </a>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="centered">Contacto</h1>
+    <div class="content">
+        <div class="left">
+            <img src="icono2.png" alt="Imagen de Contacto">
+        </div>
+        <div class="right">
+            <p>"En nuestra empresa, estamos comprometidos en ofrecer un servicio de atención al cliente excepcional, asegurando que todas tus inquietudes y necesidades sean atendidas de manera rápida y eficiente. Si deseas obtener más información sobre nuestros productos o servicios, o si tienes alguna pregunta, no dudes en ponerte en contacto con nosotros. Nuestro equipo está disponible para ofrecerte asesoramiento personalizado y ayudarte en todo lo que necesites. Ofrecemos diversas formas de comunicación, como correo electrónico, teléfono y redes sociales, para que puedas elegir la opción que mejor se adapte a ti. Además, si tienes sugerencias o comentarios, siempre estamos abiertos a escuchar tus opiniones para mejorar continuamente. Entendemos la importancia de una comunicación clara y eficaz, por lo que nos aseguramos de responder a todos los mensajes en el menor tiempo posible. Ya sea para realizar una consulta, concertar una cita o resolver cualquier problema, estamos aquí para ayudarte. Gracias por elegirnos, y esperamos poder atenderte pronto. ¡Tu satisfacción es nuestra prioridad!"</p>
+        </div>
+    </div>
+    <div class="full-width">
+        <p>"Nos esforzamos por brindar un servicio de calidad en todo momento, y por eso, cada miembro de nuestro equipo está capacitado para ofrecer soluciones eficaces y rápidas. Sabemos que tu tiempo es valioso, por lo que trabajamos para garantizar que cada interacción sea lo más eficiente posible. Además, ofrecemos una amplia variedad de canales de contacto, desde nuestro formulario en línea hasta nuestras redes sociales, para facilitar tu comunicación con nosotros. Si prefieres una atención más personalizada, también puedes agendar una cita en nuestras oficinas o realizar consultas por teléfono. Todos los mensajes que recibimos son tratados con la máxima prioridad, y nos aseguramos de que cada solicitud sea atendida con el cuidado y la atención que se merece. Estamos convencidos de que la clave para una buena relación con nuestros clientes es la transparencia, por lo que siempre te mantendremos informado sobre el estado de tu consulta. No importa el motivo por el que nos contactes, nuestra misión es ofrecerte la mejor experiencia posible y apoyarte en cada paso del camino."</p>
+    </div>
+    <a href="index.html">
+        <button class="back-button">Volver a Inicio</button>
+    </a>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="centered">Quiénes Somos</h1>
+    <div class="content">
+        <div class="left">
+            <img src="icono1.png" alt="Imagen de Quiénes Somos">
+        </div>
+        <div class="right">
+            <p>"En nuestra empresa, nos dedicamos a ofrecer soluciones innovadoras que impulsan la transformación digital en diversas industrias. Con más de una década de experiencia en el sector, hemos trabajado incansablemente para proporcionar servicios de alta calidad que optimicen los procesos operativos de nuestros clientes. Nuestra misión es ayudar a las organizaciones a adaptarse a los constantes cambios tecnológicos, mejorando su eficiencia, reduciendo costos y fortaleciendo su competitividad en el mercado global. Nos enorgullece contar con un equipo de profesionales altamente capacitados, comprometidos con el desarrollo de proyectos personalizados que se alinean con las necesidades específicas de cada cliente. Además, promovemos una cultura organizacional basada en la colaboración, la innovación y el respeto, lo que nos permite crear soluciones únicas que generan un impacto real. Nuestra visión a largo plazo es continuar siendo un referente en el sector, brindando siempre el mejor servicio y acompañando a nuestros clientes en su evolución tecnológica. Estamos convencidos de que el futuro es digital, y estamos aquí para ser su socio estratégico en ese viaje."</p>
+        </div>
+    </div>
+    <div class="full-width">
+        <p>"Más detalles sobre nuestra misión, visión y valores... Nuestra misión es ser un catalizador para el cambio en el mundo empresarial, ayudando a las organizaciones a aprovechar las tecnologías emergentes para mejorar sus procesos internos y ofrecer mejores resultados. Nos enfocamos en proporcionar soluciones tecnológicas personalizadas que no solo resuelvan problemas inmediatos, sino que también preparen a las empresas para el futuro. La visión de nuestra empresa es ser líderes en innovación y transformación digital, destacándonos por nuestra capacidad para adaptarnos a las necesidades cambiantes del mercado y por nuestra dedicación a crear un impacto positivo en la sociedad a través de la tecnología. Nuestros valores fundamentales incluyen la integridad, la excelencia y la responsabilidad social. Creemos en la honestidad en todas nuestras relaciones, tanto con nuestros clientes como con nuestros colaboradores. La excelencia guía nuestro trabajo, impulsándonos a superar las expectativas y a entregar soluciones de la más alta calidad. Además, estamos comprometidos con el bienestar de la comunidad y el respeto al medio ambiente, trabajando siempre con un enfoque ético y sostenible en todo lo que hacemos."</p>
+    </div>
+    <a href="index.html">
+        <button class="back-button">Volver a Inicio</button>
+    </a>
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+}
+
+h1 {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 50px;
+    border-bottom: 4px solid white; /* Línea blanca con un grosor de 4px */
+    width: 60%; /* Ajusta el ancho de la línea */
+    margin: 0 auto; /* Centra la línea en el h1 */
+    padding-bottom: 0px; /* Espacio entre el texto y la línea */
+    margin-bottom: 10px;
+}
+
+.centered {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.big-button {
+    width: 200px;
+    height: 200px;
+    margin: 0 20px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.big-button img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Suaviza la transición */
+}
+
+.big-button:hover img {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen en un 10% */
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.left {
+    width: 100%;
+    padding: 0px;
+    margin-right: 0px;
+}
+
+.left img {
+    width: 200px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.right {
+    width: 100%;
+    padding: 0px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.full-width {
+    width: 100%;
+    height: auto;
+    background-color: #000000;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    color: whitesmoke;
+}
+
+.back-button {
+    width: 200px;
+    height: 50px;
+    margin-top: 0px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    transition: transform 0.3s ease; /* Suaviza la transición */
+}
+
+.back-button:hover {
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+}
+
+p {
+    font-style: italic;
+    text-align: justify;
+    padding: 20px;
+    margin:0px;
+}
+
+// Cambiar color de fondo de los botones al hacer hover
+const buttons = document.querySelectorAll('.big-button');
+
+buttons.forEach(button => {
+    button.addEventListener('mouseover', () => {
+        button.style.backgroundColor = '#3498db'; // Azul al pasar el mouse
+    });
+    button.addEventListener('mouseout', () => {
+        button.style.backgroundColor = '#f4f4f4'; // Vuelve al color original
+    });
+});
+
+// Función para navegar entre las páginas de forma dinámica
+const navigateButtons = document.querySelectorAll('a'); // Selecciona todos los enlaces
+
+navigateButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        window.location.href = button.getAttribute('href'); // Cambia la página según el enlace
+    });
+});
+
+// Mostrar un mensaje de bienvenida en la consola cuando se carga la página (solo en index.html)
+if (window.location.pathname.includes('index.html')) {
+    window.addEventListener('load', () => {
+        console.log("¡Bienvenido a nuestra página!");
+    });
+}
