@@ -1,0 +1,47 @@
+-- Esquema reducido para MySQL
+
+CREATE DATABASE EmpresaPaqueteria;
+USE EmpresaPaqueteria;
+
+-- Tabla de Provincias
+CREATE TABLE Provincias (
+    id_provincia INT AUTO_INCREMENT PRIMARY KEY,
+    nombreProvincia VARCHAR(100) NOT NULL
+);
+
+-- Tabla de Camioneros
+CREATE TABLE Camioneros (
+    id_camionero INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    dni VARCHAR(20) NOT NULL UNIQUE,
+    telefono VARCHAR(15),
+    direccion VARCHAR(255),
+    salario DECIMAL(10, 2)
+);
+
+-- Tabla de Camiones
+CREATE TABLE Camiones (
+    id_camion INT AUTO_INCREMENT PRIMARY KEY,
+    matricula VARCHAR(20) NOT NULL UNIQUE,
+    modelo VARCHAR(50),
+    tipo VARCHAR(50),
+    potencia DECIMAL(5, 2)
+);
+
+-- Tabla de Paquetes
+CREATE TABLE Paquetes (
+    id_paquete INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(50) NOT NULL UNIQUE,
+    descripcion TEXT,
+    nombre_destinatario VARCHAR(100) NOT NULL,
+    apellidos_destinatario VARCHAR(100) NOT NULL,
+    telefono_destinatario VARCHAR(15),
+    direccion_destinatario VARCHAR(255),
+    poblacion VARCHAR(100),
+    id_camionero INT NOT NULL,
+    id_provincia INT NOT NULL,
+    id_camion INT NOT NULL,
+    FOREIGN KEY (id_camionero) REFERENCES Camioneros(id_camionero),
+    FOREIGN KEY (id_provincia) REFERENCES Provincias(id_provincia),
+    FOREIGN KEY (id_camion) REFERENCES Camiones(id_camion)
+);
