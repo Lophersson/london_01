@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: black;
+            color: whitesmoke;
+        }
+        h1 {
+            font-style: italic;
+            font-weight: 700;
+            font-size: 50px;
+            border-bottom: 4px solid white;
+            width: 60%;
+            margin: 0 auto;
+            padding-bottom: 0px;
+            margin-bottom: 10px;
+        }
+        .centered {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        .buttons-container {
+            display: flex; /* Alinea los botones horizontalmente */
+            justify-content: center;
+            margin-top: 30px;
+            width: 800px; /* Igual que .content-container */
+            margin: 0 auto; /* Centrado */
+            border: 2px solid lightgray; /* Borde gris */
+            padding: 20px; /* Espaciado dentro del contenedor */
+            padding-bottom: 70px;
+            flex-direction: column; /* Alineación en columna para los botones */
+        }
+        .buttons {
+            display: flex; /* Alinea los botones horizontalmente */
+            justify-content: center;
+            gap: 20px; /* Espaciado entre botones */
+        }
+        .big-button {
+            width: 200px;
+            height: 200px;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: #000000;
+            cursor: pointer;
+        }
+        .big-button img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .big-button:hover img {
+            transform: scale(1.1);
+        }
+        .content {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .content-container {
+            width: 800px; /* Establecer el ancho de 800px */
+            margin: 0 auto; /* Centrar el contenedor */
+            border: 2px solid lightgray; /* Borde gris */
+            padding: 20px; /* Añadir relleno dentro del contenedor */
+            text-align: justify; /* Justificar el texto */
+        }
+        .content-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .left img {
+            width: 200px;
+            height: auto;
+        }
+        .left {
+            margin-left: 0; /* Sin margen a la izquierda */
+        }
+        .right {
+            padding: 0 20px;
+            text-align: justify; /* Justificar texto dentro de .right */
+            width: 100%; /* Asegurarse de que .right no sobresalga */
+        }
+        .full-width1 {
+            width: 100%;
+            height: auto;
+            background-color: #000000;
+            color: whitesmoke;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin-top: 20px;
+            text-align: justify; /* Justificar el texto dentro de full-width */
+            padding: 10px; /* Añadir relleno */
+            padding-top: 4px;
+        }
+        .full-width {
+            width: 100%;
+            height: auto;
+            background-color: #000000;
+            color: whitesmoke;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin-top: 20px;
+            text-align: justify; /* Justificar el texto dentro de full-width */
+            padding: 10px; /* Añadir relleno */
+            padding-top: 0px;
+        }
+        .back-button {
+            width: 200px;
+            height: 50px;
+            margin-top: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            transition: transform 0.3s ease;
+            margin: 0 auto;
+            display: block;
+        }
+        p {
+            font-style: italic;
+            text-align: justify;
+            padding: 20px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bienvenidos">
+        <h1 class="centered">Bienvenidos</h1>
+
+        <div class="buttons-container">
+            <div class="buttons">
+                <button class="big-button" onclick="showContent('quienesSomos')">
+                    <img src="icono1.png" alt="Quiénes Somos">
+                </button>
+                <button class="big-button" onclick="showContent('contacto')">
+                    <img src="icono2.png" alt="Contacto">
+                </button>
+            </div>
+
+            <div class="full-width1">
+                <p>"Nos esforzamos por brindar un servicio de calidad en todo momento, y por eso, cada miembro de nuestro equipo está capacitado para ofrecer soluciones eficaces y rápidas. Sabemos que tu tiempo es valioso, por lo que trabajamos para garantizar que cada interacción sea lo más eficiente posible. Además, ofrecemos una amplia variedad de canales de contacto, desde nuestro formulario en línea hasta nuestras redes sociales, para facilitar tu comunicación con nosotros. Si prefieres una atención más personalizada, también puedes agendar una cita en nuestras oficinas o realizar consultas por teléfono."</p>
+            </div> 
+        </div>        
+    </div>
+
+    <!-- Contenido Quiénes Somos -->
+    <div id="quienesSomos" class="content">
+        <h1 class="centered">Quiénes Somos</h1>
+        <div class="content-container">
+            <div class="content-inner">
+                <div class="left">
+                    <img src="icono1.png" alt="Imagen de Quiénes Somos">
+                </div>
+                <div class="right">
+                    <p>"En nuestra empresa, estamos comprometidos en ofrecer un servicio de atención al cliente excepcional, asegurando que todas tus inquietudes y necesidades sean atendidas de manera rápida y eficiente. Si deseas obtener más información sobre nuestros productos o servicios, o si tienes alguna pregunta, no dudes en ponerte en contacto con nosotros. Nuestro equipo está disponible para ofrecerte asesoramiento personalizado y ayudarte en todo lo que necesites."</p>
+                </div>
+            </div>
+            <div class="full-width">
+                <p>"Nos esforzamos por brindar un servicio de calidad en todo momento, y por eso, cada miembro de nuestro equipo está capacitado para ofrecer soluciones eficaces y rápidas. Sabemos que tu tiempo es valioso, por lo que trabajamos para garantizar que cada interacción sea lo más eficiente posible. Además, ofrecemos una amplia variedad de canales de contacto, desde nuestro formulario en línea hasta nuestras redes sociales, para facilitar tu comunicación con nosotros. Si prefieres una atención más personalizada, también puedes agendar una cita en nuestras oficinas o realizar consultas por teléfono."</p>
+            </div>
+            <button class="back-button" onclick="hideContent('quienesSomos')">Volver a Inicio</button>
+        </div>
+    </div>
+
+    <!-- Contenido Contacto -->
+    <div id="contacto" class="content">
+        <h1 class="centered">Contacto</h1>
+        <div class="content-container">
+            <div class="content-inner">
+                <div class="left">
+                    <img src="icono2.png" alt="Imagen de Contacto">
+                </div>
+                <div class="right">
+                    <p>"En nuestra empresa, estamos comprometidos en ofrecer un servicio de atención al cliente excepcional, asegurando que todas tus inquietudes y necesidades sean atendidas de manera rápida y eficiente. Si deseas obtener más información sobre nuestros productos o servicios, o si tienes alguna pregunta, no dudes en ponerte en contacto con nosotros. Nuestro equipo está disponible para ofrecerte asesoramiento personalizado y ayudarte en todo lo que necesites."</p>
+                </div>
+            </div>
+            <div class="full-width">
+                <p>"Nos esforzamos por brindar un servicio de calidad en todo momento, y por eso, cada miembro de nuestro equipo está capacitado para ofrecer soluciones eficaces y rápidas. Sabemos que tu tiempo es valioso, por lo que trabajamos para garantizar que cada interacción sea lo más eficiente posible. Además, ofrecemos una amplia variedad de canales de contacto, desde nuestro formulario en línea hasta nuestras redes sociales, para facilitar tu comunicación con nosotros. Si prefieres una atención más personalizada, también puedes agendar una cita en nuestras oficinas o realizar consultas por teléfono."</p>
+            </div>
+            <button class="back-button" onclick="hideContent('contacto')">Volver a Inicio</button>
+        </div>
+    </div>
+
+    <script>
+        function showContent(contentId) {
+            // Ocultar Bienvenidos
+            document.getElementById('bienvenidos').style.display = 'none';
+            // Ocultar todos los contenidos
+            document.getElementById('quienesSomos').style.display = 'none';
+            document.getElementById('contacto').style.display = 'none';
+            // Mostrar el contenido seleccionado
+            document.getElementById(contentId).style.display = 'block';
+        }
+
+        function hideContent(contentId) {
+            // Ocultar el contenido actual
+            document.getElementById(contentId).style.display = 'none';
+            // Volver a mostrar Bienvenidos
+            document.getElementById('bienvenidos').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
