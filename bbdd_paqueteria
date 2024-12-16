@@ -1,0 +1,63 @@
+-- Esquema de base de datos para una empresa de paquetería
+
+CREATE DATABASE EmpresaPaqueteria;
+USE EmpresaPaqueteria;
+
+-- Tabla de Provincias
+CREATE TABLE Provincias (
+    id_provincia INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+-- Tabla de Clientes
+CREATE TABLE Clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    dni VARCHAR(20) NOT NULL UNIQUE,
+    telefono VARCHAR(15),
+    direccion VARCHAR(255)
+);
+
+-- Tabla de Camioneros
+CREATE TABLE Camioneros (
+    id_camionero INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    dni VARCHAR(20) NOT NULL UNIQUE,
+    telefono VARCHAR(15),
+    direccion VARCHAR(255),
+    salario DECIMAL(10, 2)
+);
+
+-- Tabla de Camiones
+CREATE TABLE Camiones (
+    id_camion INT AUTO_INCREMENT PRIMARY KEY,
+    matricula VARCHAR(20) NOT NULL UNIQUE,
+    modelo VARCHAR(50),
+    tipo VARCHAR(50),
+    potencia DECIMAL(5, 2)
+);
+
+-- Tabla de Paquetes
+CREATE TABLE Paquetes (
+    id_paquete INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(50) NOT NULL UNIQUE,
+    descripcion TEXT,
+    id_cliente INT NOT NULL,
+    id_provincia INT NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    FOREIGN KEY (id_provincia) REFERENCES Provincias(id_provincia)
+);
+
+-- Tabla de Distribuciones (relación entre Camioneros, Camiones, Provincias y Paquetes)
+CREATE TABLE Distribuciones (
+    id_distribucion INT AUTO_INCREMENT PRIMARY KEY,
+    id_camionero INT NOT NULL,
+    id_camion INT NOT NULL,
+    id_paquete INT NOT NULL,
+    id_provincia INT NOT NULL,
+    fecha_distribucion DATE NOT NULL,
+    FOREIGN KEY (id_camionero) REFERENCES Camioneros(id_camionero),
+    FOREIGN KEY (id_camion) REFERENCES Camiones(id_camion),
+    FOREIGN KEY (id_paquete) REFERENCES Paquetes(id_paquete),
+    FOREIGN KEY (id_provincia) REFERENCES Provincias(id_provincia)
+);
