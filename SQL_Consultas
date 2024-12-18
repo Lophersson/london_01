@@ -1,0 +1,101 @@
+1 CONSULTA:
+USE Northwind;
+SELECT 
+    E.EmployeeID,
+    E.LastName AS EmployeeLastName,
+    E.FirstName AS EmployeeFirstName,
+    M.LastName AS ManagerLastName,
+    M.FirstName AS ManagerFirstName
+FROM Employees AS E
+LEFT JOIN Employees AS M
+    ON E.ReportsTo = M.EmployeeID
+ORDER BY E.LastName ASC, E.FirstName ASC;
+
+2 CONSULTA:
+USE Northwind;
+SELECT 
+    E.EmployeeID,
+    E.LastName,
+    E.FirstName,
+    COUNT(O.OrderID) AS OrdersHandled,
+    SUM(O.Freight) AS TotalFreightCost
+FROM Employees AS E
+LEFT JOIN Orders AS O
+    ON E.EmployeeID = O.EmployeeID
+GROUP BY E.EmployeeID, E.LastName, E.FirstName
+ORDER BY TotalFreightCost DESC;
+
+3 CONSULTA:
+USE Northwind;
+SELECT 
+    EmployeeID,
+    LastName,
+    FirstName,
+    Title,
+    Salary
+FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees)
+ORDER BY Salary DESC;
+
+4 CONSULTA:
+USE Northwind;
+SELECT 
+    E.EmployeeID,
+    E.LastName,
+    E.FirstName,
+    COUNT(O.OrderID) AS OrdersHandled,
+    RANK() OVER (ORDER BY COUNT(O.OrderID) DESC) AS Rank
+FROM Employees AS E
+LEFT JOIN Orders AS O
+    ON E.EmployeeID = O.EmployeeID
+GROUP BY E.EmployeeID, E.LastName, E.FirstName
+ORDER BY Rank ASC;
+
+5 CONSULTA:
+USE Northwind;
+SELECT 
+    O.OrderID,
+    O.OrderDate,
+    C.CompanyName AS CustomerName,
+    E.LastName AS EmployeeLastName,
+    E.FirstName AS EmployeeFirstName
+FROM Orders AS O
+INNER JOIN Customers AS C
+    ON O.CustomerID = C.CustomerID
+INNER JOIN Employees AS E
+    ON O.EmployeeID = E.EmployeeID
+WHERE O.OrderDate BETWEEN '1997-01-01' AND '1997-12-31'
+ORDER BY O.OrderDate DESC;
+
+6 CONSULTA:
+USE Northwind;
+SELECT 
+    E.EmployeeID,
+    E.LastName,
+    E.FirstName,
+    COUNT(O.OrderID) AS OrdersHandled,
+    CASE 
+        WHEN COUNT(O.OrderID) > 20 THEN 'Alta Gestión'
+        ELSE 'Baja Gestión'
+    END AS ManagementLevel
+FROM Employees AS E
+LEFT JOIN Orders AS O
+    ON E.EmployeeID = O.EmployeeID
+GROUP BY E.EmployeeID, E.LastName, E.FirstName
+ORDER BY OrdersHandled DESC;
+
+7 CONSULTA:
+USE Northwind;
+SELECT 
+    C.CategoryName,
+    P.ProductName,
+    SUM(OD.Quantity) AS TotalQuantitySold
+FROM Categories AS C
+INNER JOIN Products AS P
+    ON C.CategoryID = P.CategoryID
+INNER JOIN [Order Details] AS OD
+    ON P.ProductID = OD.ProductID
+GROUP BY C.CategoryName, P.ProductName
+ORDER BY C.CategoryName ASC, TotalQuantitySold DESC;
+
+END FILE.
