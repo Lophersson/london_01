@@ -63,7 +63,7 @@ VALUES
 (109, 'Precision Technologies', 'Precision Technologies', 'Amelia Carter', '200 Precision Rd', 'Dallas', '75203', 'USA'),
 (110, 'Tech Solutions Group', 'Tech Solutions Group', 'Lucas Perez', '321 Tech Solutions Ave', 'Chicago', '60614', 'USA'),
 (111, 'Visionary Systems', 'Visionary Systems Inc.', 'Emma Young', '654 Visionary Blvd', 'San Francisco', '94103', 'USA'),
-(112, 'Pioneers of Innovation', 'Pioneers of Innovation', 'Oliver White', '89 Pioneer St', 'New York', '10019', 'USA');
+(112, 'Pioneers of Innovation', 'Pioneers of Innovation', 'Oliver White', '89 Pioneer St', 'New York', '10019', 'USA'),
 (113, 'NextWave Technologies', 'NextWave Technologies', 'Isabella Harris', '102 NextWave Rd', 'San Francisco', '94104', 'USA'),
 (114, 'Cloud Innovations', 'Cloud Innovations Inc.', 'Elijah Carter', '345 Cloud Ave', 'Chicago', '60615', 'USA'),
 (115, 'Edge Systems', 'Edge Systems Corp.', 'Harper Thomas', '23 Edge Rd', 'Los Angeles', '90022', 'USA'),
