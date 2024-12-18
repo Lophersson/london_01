@@ -17,3 +17,24 @@ SET `Title` =
         ELSE `Title`
     END
 WHERE `EmployeeID` IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+---
+ALTER TABLE `northwind`.`employees`
+ADD COLUMN `Department` VARCHAR(50);
+
+UPDATE `northwind`.`employees`
+SET `Department` = 
+    CASE 
+        WHEN `EmployeeID` = 1 THEN 'Management'
+        WHEN `EmployeeID` = 2 THEN 'Sales'
+        WHEN `EmployeeID` = 3 THEN 'Sales'
+        WHEN `EmployeeID` = 4 THEN 'Human Resources'
+        WHEN `EmployeeID` = 5 THEN 'IT'
+        WHEN `EmployeeID` = 6 THEN 'Management'
+        WHEN `EmployeeID` = 7 THEN 'Finance'
+        WHEN `EmployeeID` = 8 THEN 'Sales'
+        WHEN `EmployeeID` = 9 THEN 'Customer Support'
+        WHEN `EmployeeID` = 10 THEN 'Operations'
+        ELSE `Department`
+    END
+WHERE `EmployeeID` IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
