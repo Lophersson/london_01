@@ -6,4 +6,38 @@ SELECT
 FROM Employees
 WHERE City = 'London';
 
-end.
+CREATE TABLE Employees (
+    EmployeeID INT AUTO_INCREMENT PRIMARY KEY,
+    LastName VARCHAR(20) NOT NULL,
+    FirstName VARCHAR(10) NOT NULL,
+    Title VARCHAR(30),
+    TitleOfCourtesy VARCHAR(25),
+    BirthDate DATE,
+    HireDate DATE,
+    Address VARCHAR(60),
+    City VARCHAR(15),
+    Region VARCHAR(15),
+    PostalCode VARCHAR(10),
+    Country VARCHAR(15),
+    HomePhone VARCHAR(24),
+    Extension VARCHAR(4),
+    Photo LONGBLOB,
+    Notes TEXT,
+    ReportsTo INT,
+    PhotoPath VARCHAR(255),
+    FOREIGN KEY (ReportsTo) REFERENCES Employees(EmployeeID)
+);
+
+INSERT INTO Employees 
+    (LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Notes, ReportsTo, PhotoPath)
+VALUES
+    ('Davolio', 'Nancy', 'Sales Representative', 'Ms.', '1948-12-08', '1992-05-01', '507 - 20th Ave. E. Apt. 2A', 'Seattle', NULL, '98122', 'USA', '(206) 555-9857', '5467', 'Experienced in sales and management.', 2, 'http://accphotos/nancy.jpg'),
+    ('Fuller', 'Andrew', 'Vice President, Sales', 'Dr.', '1952-02-19', '1992-08-14', '908 W. Capital Way', 'Tacoma', NULL, '98401', 'USA', '(206) 555-9482', '3457', 'Oversees the sales department.', NULL, 'http://accphotos/andrew.jpg'),
+    ('Leverling', 'Janet', 'Sales Representative', 'Ms.', '1963-08-30', '1992-04-01', '722 Moss Bay Blvd.', 'Kirkland', NULL, '98033', 'USA', '(206) 555-3412', '3355', 'Strong expertise in regional markets.', 2, 'http://accphotos/janet.jpg'),
+    ('Peacock', 'Margaret', 'Sales Representative', 'Mrs.', '1937-09-19', '1993-05-03', '4110 Old Redmond Rd.', 'Redmond', NULL, '98052', 'USA', '(206) 555-8122', '5176', 'Skilled in B2B client relationships.', 2, 'http://accphotos/margaret.jpg'),
+    ('Buchanan', 'Steven', 'Sales Manager', 'Mr.', '1955-03-04', '1993-10-17', '14 Garrett Hill', 'London', NULL, 'SW1 8JR', 'UK', '(71) 555-4848', '3453', 'Focused on long-term strategy.', 2, 'http://accphotos/steven.jpg'),
+    ('Suyama', 'Michael', 'Sales Representative', 'Mr.', '1963-07-02', '1993-10-17', 'Coventry House Miner Rd.', 'London', NULL, 'EC2 7JR', 'UK', '(71) 555-7773', '428', 'Excellent communicator and closer.', 5, 'http://accphotos/michael.jpg'),
+    ('King', 'Robert', 'Sales Representative', 'Mr.', '1960-05-29', '1994-01-02', 'Edgeham Hollow Winchester Way', 'Seattle', NULL, 'WA1 1DP', 'USA', '(206) 555-6943', '465', 'Knowledgeable in technical sales.', 5, 'http://accphotos/robert.jpg'),
+    ('Callahan', 'Laura', 'Inside Sales Coordinator', 'Ms.', '1958-01-09', '1994-03-05', '4726 - 11th Ave. N.E.', 'Seattle', NULL, '98105', 'USA', '(206) 555-1189', '2344', 'Manages internal communications.', 2, 'http://accphotos/laura.jpg'),
+    ('Dodsworth', 'Anne', 'Sales Representative', 'Ms.', '1966-01-27', '1994-11-15', '7 Houndstooth Rd.', 'London', NULL, 'WG2 7LT', 'UK', '(71) 555-4444', '452', 'Specializes in customer retention.', 5, 'http://accphotos/anne.jpg');
+
