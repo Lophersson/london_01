@@ -3,9 +3,17 @@ SELECT
     CONCAT(FirstName, ' ', LastName) AS FullName,
     Title,
     City
+FROM Empleados
+WHERE FirstName LIKE 'A%';
+---
+USE Northwind;
+SELECT 
+    CONCAT(FirstName, ' ', LastName) AS FullName,
+    Title,
+    City
 FROM Employees
 WHERE City = 'London';
-
+---
 CREATE TABLE Employees (
     EmployeeID INT AUTO_INCREMENT PRIMARY KEY,
     LastName VARCHAR(20) NOT NULL,
