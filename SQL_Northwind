@@ -1,5 +1,20 @@
 USE Northwind;
 SELECT 
+    FirstName AS Nombre,
+    LastName AS Apellido,
+    BirthDate AS Cumpleaños
+FROM Employees
+WHERE FirstName = 'Laura';
+---
+USE Northwind;
+SELECT 
+    CustomerID,
+    CompanyName
+FROM Customers
+WHERE CustomerID = 'BOLID';
+---
+USE Northwind;
+SELECT 
     CONCAT(FirstName, ' ', LastName) AS FullName,
     Title,
     City
