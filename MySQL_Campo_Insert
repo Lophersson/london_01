@@ -1,0 +1,19 @@
+ALTER TABLE `northwind`.`employees`
+ADD COLUMN `Title` VARCHAR(30);
+---
+UPDATE `northwind`.`employees`
+SET `Title` = 
+    CASE 
+        WHEN `EmployeeID` = 1 THEN 'Manager'
+        WHEN `EmployeeID` = 2 THEN 'Sales Representative'
+        WHEN `EmployeeID` = 3 THEN 'Sales Representative'
+        WHEN `EmployeeID` = 4 THEN 'HR Specialist'
+        WHEN `EmployeeID` = 5 THEN 'IT Specialist'
+        WHEN `EmployeeID` = 6 THEN 'General Manager'
+        WHEN `EmployeeID` = 7 THEN 'Accountant'
+        WHEN `EmployeeID` = 8 THEN 'Sales Associate'
+        WHEN `EmployeeID` = 9 THEN 'Support Specialist'
+        WHEN `EmployeeID` = 10 THEN 'Operations Manager'
+        ELSE `Title`
+    END
+WHERE `EmployeeID` IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
