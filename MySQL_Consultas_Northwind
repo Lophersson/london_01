@@ -4,3 +4,9 @@ SELECT CategoryName, Description
 FROM categories
 WHERE CategoryName LIKE 'C%' OR CategoryName LIKE 'A%';
 ---
+SELECT 
+    CategoryName, 
+    Description,
+    CONCAT(LEFT(CategoryName, 2), LEFT(Description, 2)) AS Codigo
+FROM categories;
+---
