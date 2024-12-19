@@ -10,3 +10,28 @@ SELECT
     CONCAT(LEFT(CategoryName, 2), LEFT(Description, 2)) AS Codigo
 FROM categories;
 ---
+SET SQL_SAFE_UPDATES = 0;
+---
+SET SQL_SAFE_UPDATES = 1;
+---
+UPDATE `northwind`.`orderdetails`
+SET `unitPrice` = ROUND(1 + (RAND() * 100), 2)
+WHERE `unitPrice` IS NULL
+LIMIT 100;
+---
+ALTER TABLE `northwind`.`orderdetails`
+ADD COLUMN `unitPrice` DECIMAL(10, 2);
+---
+UPDATE `northwind`.`orderdetails`
+SET `unitPrice` = ROUND(1 + (RAND() * 100), 2)
+WHERE `unitPrice` IS NULL
+LIMIT 100;
+---
+SELECT 
+    OrderDetailID,
+    unitPrice,
+    Quantity,
+    (unitPrice + Quantity) / 2 AS media
+FROM 
+    orderdetails;
+---
