@@ -35,3 +35,7 @@ SELECT
 FROM 
     orderdetails;
 ---
+SELECT p.ProductName, c.CategoryName
+FROM products p
+JOIN categories c ON p.CategoryID = c.CategoryID;
+---
