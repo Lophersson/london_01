@@ -1,0 +1,6 @@
+USE northwind;
+
+SELECT CategoryName, Description
+FROM categories
+WHERE CategoryName LIKE 'C%' OR CategoryName LIKE 'A%';
+---
