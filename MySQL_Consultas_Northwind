@@ -39,3 +39,7 @@ SELECT p.ProductName, c.CategoryName
 FROM products p
 JOIN categories c ON p.CategoryID = c.CategoryID;
 ---
+SELECT p.ProductName, c.CategoryName
+FROM products p
+LEFT JOIN categories c ON p.CategoryID = c.CategoryID;
+---
