@@ -38,7 +38,7 @@ WHERE (MONTH(OrderDate) = 1)  -- Enero
    OR (MONTH(OrderDate) = 3)  -- Marzo
    OR (YEAR(OrderDate) = 1997 AND MONTH(OrderDate) = 4);  -- Abril de 1997
 ---
-SELECT DISTINCT e.EmployeeID, e.FirstName
-FROM employees e
-JOIN orders o ON e.EmployeeID = o.EmployeeID;
+SELECT e.EmployeeID, e.FirstName, o.OrderID
+FROM Employees e
+JOIN Orders o ON e.EmployeeID = o.EmployeeID;
 ---
