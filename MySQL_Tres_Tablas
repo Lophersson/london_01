@@ -1,0 +1,17 @@
+SELECT DISTINCT o.OrderID, o.OrderDate
+FROM Orders o
+JOIN OrderDetails od ON o.OrderID = od.OrderID
+JOIN Products p ON od.ProductID = p.ProductID
+JOIN Categories c ON p.CategoryID = c.CategoryID
+WHERE c.CategoryName = 'Condiments';
+---
+SELECT DISTINCT 
+    Orders.OrderID AS ID,
+    Orders.OrderDate AS FECHA
+FROM 
+    Orders
+    INNER JOIN `orderdetails` AS OD ON OD.OrderID = Orders.OrderID
+    INNER JOIN Products ON Products.ProductID = OD.ProductID
+WHERE 
+    Products.CategoryID = 2;
+---
