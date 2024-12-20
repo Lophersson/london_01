@@ -20,3 +20,11 @@ FROM suppliers s
 INNER JOIN products p ON s.SupplierID = p.SupplierID
 WHERE p.CategoryID = 2;
 ---
+SELECT DISTINCT s.SupplierID, s.SupplierName
+FROM suppliers s
+LEFT JOIN products p ON s.SupplierID = p.SupplierID
+LEFT JOIN orderdetails od ON od.ProductID = p.ProductID
+LEFT JOIN orders o ON o.OrderID = od.OrderID
+WHERE p.CategoryID = 2
+  AND YEAR(o.OrderDate) = 1997;
+---
