@@ -1,0 +1,28 @@
+//Insertamos nuevos registros en la tabla orders//
+INSERT INTO `northwind`.`orders` 
+(`OrderID`, `CustomerID`, `EmployeeID`, `OrderDate`, `ShipperID`)
+VALUES
+(10444, 547, 1, '2024-11-25', 1),
+(10445, 548, 2, '2024-11-26', 2),
+(10446, 549, 3, '2024-11-27', 3),
+(10447, 550, 4, '2024-11-28', 1),
+(10448, 551, 5, '2024-11-29', 2),
+(10449, 552, 6, '2024-11-30', 3),
+(10450, 553, 7, '2024-12-01', 1),
+(10451, 554, 8, '2024-12-02', 2),
+(10452, 555, 9, '2024-12-03', 3);
+---
+//Insertamos nuevos registros en la tabla orderdetails//
+INSERT INTO `northwind`.`orderdetails` 
+(`OrderDetailID`, `OrderID`, `ProductID`, `Quantity`, `UnitPrice`)
+VALUES
+(519, 10444, 1, FLOOR(RAND() * 10) + 1, ROUND(RAND() * 100, 2)),
+(520, 10445, 2, FLOOR(RAND() * 10) + 1, ROUND(RAND() * 100, 2)),
+(521, 10446, 3, FLOOR(RAND() * 10) + 1, ROUND(RAND() * 100, 2)),
+(522, 10447, 4, FLOOR(RAND() * 10) + 1, ROUND(RAND() * 100, 2)),
+(523, 10448, 5, FLOOR(RAND() * 10) + 1, ROUND(RAND() * 100, 2)),
+(524, 10449, 6, FLOOR(RAND() * 10) + 1, ROUND(RAND() * 100, 2)),
+(525, 10450, 7, FLOOR(RAND() * 10) + 1, ROUND(RAND() * 100, 2)),
+(526, 10451, 8, FLOOR(RAND() * 10) + 1, ROUND(RAND() * 100, 2)),
+(527, 10452, 1, FLOOR(RAND() * 10) + 1, ROUND(RAND() * 100, 2));
+---
