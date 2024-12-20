@@ -1,0 +1,21 @@
+INSERT INTO `northwind`.`customers` 
+(`CustomerID`, `CustomerName`, `ContactName`, `Address`, `City`, `PostalCode`, `Country`, `CompanyName`)
+VALUES
+-- Argentina
+('557', 'Cliente 1', 'Juan Pérez', 'Calle Ficticia 123', 'Buenos Aires', '1000', 'Argentina', 'Empresa 1'),
+('558', 'Cliente 2', 'María López', 'Avenida Siempre Viva 456', 'Córdoba', '5000', 'Argentina', 'Empresa 2'),
+('559', 'Cliente 3', 'Carlos García', 'Calle de la Paz 789', 'Rosario', '2000', 'Argentina', 'Empresa 3'),
+('560', 'Cliente 4', 'Ana Rodríguez', 'Calle Libertad 101', 'Mendoza', '5500', 'Argentina', 'Empresa 4'),
+
+-- Brasil
+('551', 'Cliente 5', 'José Silva', 'Rua Fictícia 123', 'São Paulo', '01000-000', 'Brasil', 'Empresa 5'),
+('552', 'Cliente 6', 'Fernanda Souza', 'Avenida Brasil 456', 'Rio de Janeiro', '20000-000', 'Brasil', 'Empresa 6'),
+
+-- Estados Unidos
+('553', 'Cliente 7', 'John Smith', '123 Fictional St.', 'New York', '10001', 'USA', 'Company 7'),
+('554', 'Cliente 8', 'Linda Johnson', '456 Always Live Ave.', 'Los Angeles', '90001', 'USA', 'Company 8'),
+
+-- España
+('555', 'Cliente 9', 'Pedro González', 'Calle Falsa 123', 'Madrid', '28001', 'España', 'Empresa 9'),
+('556', 'Cliente 10', 'Laura Martínez', 'Avenida del Sol 456', 'Barcelona', '08001', 'España', 'Empresa 10');
+---
