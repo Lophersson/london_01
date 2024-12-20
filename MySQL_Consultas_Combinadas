@@ -28,3 +28,13 @@ LEFT JOIN orders o ON o.OrderID = od.OrderID
 WHERE p.CategoryID = 2
   AND YEAR(o.OrderDate) = 1997;
 ---
+SELECT OrderID, OrderDate
+FROM Orders
+WHERE YEAR(OrderDate) = 1996 AND MONTH(OrderDate) = 7;
+---
+SELECT OrderID, OrderDate
+FROM Orders
+WHERE (MONTH(OrderDate) = 1)  -- Enero
+   OR (MONTH(OrderDate) = 3)  -- Marzo
+   OR (YEAR(OrderDate) = 1997 AND MONTH(OrderDate) = 4);  -- Abril de 1997
+---
