@@ -15,3 +15,8 @@ FROM
 WHERE 
     Products.CategoryID = 2;
 ---
+SELECT DISTINCT s.SupplierID, s.SupplierName
+FROM suppliers s
+INNER JOIN products p ON s.SupplierID = p.SupplierID
+WHERE p.CategoryID = 2;
+---
