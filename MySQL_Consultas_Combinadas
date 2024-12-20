@@ -42,3 +42,12 @@ SELECT e.EmployeeID, e.FirstName, o.OrderID
 FROM Employees e
 JOIN Orders o ON e.EmployeeID = o.EmployeeID;
 ---
+SELECT e.EmployeeID, e.FirstName
+FROM employees e
+JOIN orders o ON e.EmployeeID = o.EmployeeID
+JOIN orderdetails od ON o.OrderID = od.OrderID
+JOIN products p ON od.ProductID = p.ProductID
+JOIN categories c ON p.CategoryID = c.CategoryID
+JOIN customers cu ON o.CustomerID = cu.CustomerID
+WHERE cu.Country = 'Argentina' AND c.CategoryName = 'Condiments';
+---
