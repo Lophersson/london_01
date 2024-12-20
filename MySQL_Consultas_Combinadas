@@ -61,3 +61,12 @@ JOIN customers cu ON o.CustomerID = cu.CustomerID
 WHERE cu.Country = 'USA' 
 AND c.CategoryName = 'Condiments';
 ---
+//VER POR PAISES QUE TIPOS DE PRODUCTOS HAN ADQUIRIDO LOS CLIENTES//
+SELECT DISTINCT cu.Country, c.CategoryName
+FROM employees e
+JOIN orders o ON e.EmployeeID = o.EmployeeID
+JOIN orderdetails od ON o.OrderID = od.OrderID
+JOIN products p ON od.ProductID = p.ProductID
+JOIN categories c ON p.CategoryID = c.CategoryID
+JOIN customers cu ON o.CustomerID = cu.CustomerID;
+---
