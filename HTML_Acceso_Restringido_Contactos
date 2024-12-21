@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos Con Acceso Restringido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #1f1f1f;
+        }
+
+        .container {
+            display: none; /* Ocultar por defecto */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+
+        .active {
+            display: flex; /* Mostrar contenedor activo */
+        }
+
+        /* Estilos de login */
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #1f1f1f;
+            box-shadow: 0 8px 16px rgba(82, 82, 82, 0.938);
+            max-width: 80%;
+            width: 360px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 10px 0 20px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 3px;
+            font-style: italic;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .login-container img {
+            width: 240px;
+            height: 240px;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            color: #ffffff;
+        }
+
+        .form-container input {
+            margin: 4px 30px 4px 30px;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            font-size: 16px;
+            background-color: #1f1f1f;
+            color: #ffffff;
+            font-style: italic;
+        }
+
+        .botonera {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            color: #ffffff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .btn-ok {
+            background-color: #28a745;
+            width: 110px;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 40px 10px 40px;
+            margin: 10px;
+        }
+
+        .btn-cancel {
+            background-color: #dc3545;
+            width: 110px;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 40px 10px 40px;
+            margin: 10px;
+        }
+
+        /* Estilos de contactos */
+        body.contacts {
+            margin: 0;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            background-color: #1f1f1f;
+            color: #cccccc;
+        }
+
+        .contacts .container {
+            max-width: 100%;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contacts h1 {
+            text-align: center;
+            color: #ec6816;
+            font-style: italic;
+            font-size: 30px;
+            margin: 24px 0;
+        }
+
+        .alphabet-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .letter {
+            background-color: #555555;
+            color: #acacac;
+            padding: 8px 10px;
+            margin: 2px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s, color 0.2s;
+            font-size: 30px;
+            font-weight: 900;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .letter:hover {
+            background-color: #ffd700; 
+            color: #1e90ff; 
+            transform: scale(1.1); 
+        }
+
+        #contact-list {
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .contact-card {
+            background-color: #4d4d4d;
+            color: #757575;
+            padding-left: 12px;
+            border-radius: 10px;
+            width: 360px;
+            text-align: left;
+            font-family: 'Tahoma', Courier, monospace;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 16px;
+            line-height: 0.15;
+            transition: color 0.3s;
+            display: none; /* Ocultar las tarjetas inicialmente */
+        }
+
+        .contact-card:hover {
+            background-color: #2b2b2b;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sección de Login -->
+    <div id="login" class="container active">
+        <div class="login-container">
+            <h2>Acceso Restringido</h2>
+            <div class="content-container">
+                <img src="https://kfscdn.api.np.km.playstation.net/6815296913124930757/1573311615669.png" alt="foto">
+                <div class="form-container">
+                    <input type="text" id="username" placeholder="Usuario">
+                    <input type="password" id="password" placeholder="Contraseña">
+                    <div style="display: flex; gap: 10px;">
+                        <div class="botonera">
+                        <button class="btn-ok" onclick="handleLogin()">✔</button>
+                        <button class="btn-cancel" onclick="handleCancel()">✖</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Contactos -->
+    <div id="contacts" class="container">
+        <h1>Directorio de Contactos</h1>
+        <div class="alphabet-buttons">
+            <button class="letter" data-letter="A">A</button>
+            <button class="letter" data-letter="B">B</button>
+            <button class="letter" data-letter="C">C</button>
+            <button class="letter" data-letter="D">D</button>
+            <button class="letter" data-letter="E">E</button>
+            <button class="letter" data-letter="F">F</button>
+            <button class="letter" data-letter="G">G</button>
+            <button class="letter" data-letter="H">H</button>
+            <button class="letter" data-letter="I">I</button>
+            <button class="letter" data-letter="J">J</button>
+            <button class="letter" data-letter="K">K</button>
+            <button class="letter" data-letter="L">L</button>
+            <button class="letter" data-letter="M">M</button>
+            <button class="letter" data-letter="N">N</button>
+            <button class="letter" data-letter="O">O</button>
+            <button class="letter" data-letter="P">P</button>
+            <button class="letter" data-letter="R">R</button>
+            <button class="letter" data-letter="S">S</button>
+            <button class="letter" data-letter="T">T</button>
+            <button class="letter" data-letter="U">U</button>
+            <button class="letter" data-letter="V">V</button>
+            <button class="letter" data-letter="W">W</button>
+            <button class="letter" data-letter="X">X</button>
+            <button class="letter" data-letter="Y">Y</button>
+            <button class="letter" data-letter="Z">Z</button>
+        </div>
+        <div id="contact-list"></div>
+    </div>
+
+    <script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.container');
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+    }
+
+    // Validar Login
+    function handleLogin() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username === 'london' && password === '123456') {
+            alert('Usuario y password correctos! Bienvenido!');
+            
+            // Cambiar estilo para ocultar login
+            document.getElementById('login').style.display = 'none';
+
+            document.body.className = 'contacts';
+            showSection('contacts');
+            initializeAlphabetButtons();
+        } else {
+            alert('Usuario o password incorrectos!');
+        }
+    }
+
+    // Cancelar Login
+    function handleCancel() {
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+        alert('¡Hasta luego!');
+    }
+
+    // Inicializar botones de letras
+    function initializeAlphabetButtons() {
+        const letterButtons = document.querySelectorAll('.letter');
+        letterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const letter = button.getAttribute('data-letter');
+                displayContacts(letter);
+            });
+        });
+    }
+
+    // Mostrar contactos
+    const rawContacts = [
+    ['Alicia', 'Abanca', '981564829'],
+    ['Barbara', 'BBVA', '881548263'],
+    ['Carla', 'CaixaBank', '981654321'],
+    ['Diana', 'Dia', '881234567'],
+    ['Elena', 'Endesa', '678123456'],
+    ['Felicia', 'Ferrovial', '749856321'],
+    ['Gabriela', 'Gas Natural', '681745923'],
+    ['Helena', 'Hipercor', '981345678'],
+    ['Irene', 'Iberdrola', '769812345'],
+    ['Juana', 'Just Eat', '678945123'],
+    ['Laura', 'La Caixa', '881765432'],
+    ['Manuela', 'Mapfre', '681234567'],
+    ['Natalia', 'Naturgy', '981876543'],
+    ['Olga', 'OHL', '678912345'],
+    ['Patricia', 'Primark', '769834512'],
+    ['Raquel', 'Renfe', '681987654'],
+    ['Sara', 'Santander', '881543267'],
+    ['Teresa', 'Telefónica', '981432678'],
+    ['Ursula', 'Unicaja', '749812345'],
+    ['Valeria', 'Vodafone', '678654321'],
+    ['Yolanda', 'Yoigo', '769123456'],
+    ['Zaira', 'Zara', '681234876'],
+    ['Karla', 'Kutxabank', '681943257'],
+    ['Wendy', 'Wallapop', '769812654'],
+    ['Katherina', 'Ucraniana', '673913081'],
+    ['Ximena', 'Xunta Galicia', '881654329']
+];
+
+    function displayContacts(letter = '') {
+        const contactListDiv = document.getElementById('contact-list');
+        contactListDiv.innerHTML = ''; // Limpiar contenido
+
+        rawContacts.forEach(contact => {
+            if (contact[0].toUpperCase().startsWith(letter.toUpperCase()) || letter === '') {
+                const contactCard = document.createElement('div');
+                contactCard.classList.add('contact-card');
+                contactCard.style.display = 'block';
+
+                contact.forEach(item => {
+                    const p = document.createElement('p');
+                    if (item.toLowerCase() === 'pass') {
+                        p.innerHTML = `<span style="color: yellow;">${item}</span>`;
+                    } else {
+                        p.textContent = item;
+                    }
+                    contactCard.appendChild(p);
+                });
+
+                contactListDiv.appendChild(contactCard);
+            }
+        });
+    }
+</script>
+</body>
+</html>
